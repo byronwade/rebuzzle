@@ -1209,7 +1209,7 @@ export default function GameBoard({ gameData }: GameBoardProps) {
                             : "text-muted-foreground"
                         )}
                       >
-                        <span className="font-mono text-xs text-subtle uppercase tracking-[0.08em]">
+                        <span className="font-mono text-xs text-subtle uppercase tracking-widest">
                           {lastTurn.text}
                         </span>
                         <span className="mx-1.5 text-border-strong">·</span>
