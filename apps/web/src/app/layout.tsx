@@ -333,7 +333,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Notification permission hint for mobile */}
         <meta content="granted" name="notification-permission" />
       </head>
-      <body className="min-h-screen overflow-x-hidden bg-background font-sans antialiased">
+      <body className="min-h-screen overflow-x-clip bg-background font-sans antialiased">
         {/* Skip to content link for keyboard navigation */}
         <a
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:font-medium focus:text-background focus:text-sm"
