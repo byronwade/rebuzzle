@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  Check,
-  Copy,
-  Facebook,
-  Link2,
-  Linkedin,
-  Mail,
-  MessageCircle,
-  Share2,
-  Twitter,
-} from "lucide-react";
+import { Check, Copy, Link2, Mail, MessageCircle, Share2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { Button } from "@/components/ui/button";
@@ -28,6 +18,67 @@ import { haptics } from "@/lib/haptics";
 import { useIsClient } from "@/lib/hooks/use-is-client";
 import { playInterfaceSound } from "@/lib/interface-sounds";
 import { cn } from "@/lib/utils";
+
+/** Lucide 1.29+ dropped brand marks. Keep share destinations recognizable. */
+function BrandMark({
+  label,
+  path,
+  className,
+  filled = false,
+}: {
+  label: string;
+  path: string;
+  className?: string;
+  filled?: boolean;
+}) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      data-icon="inline-start"
+      fill={filled ? "currentColor" : "none"}
+      stroke={filled ? "none" : "currentColor"}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={filled ? undefined : 2}
+      viewBox="0 0 24 24"
+    >
+      <title>{label}</title>
+      <path d={path} />
+    </svg>
+  );
+}
+
+function Twitter({ className }: { className?: string }) {
+  return (
+    <BrandMark
+      className={className}
+      filled
+      label="X"
+      path="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.74l7.726-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+    />
+  );
+}
+
+function Facebook({ className }: { className?: string }) {
+  return (
+    <BrandMark
+      className={className}
+      label="Facebook"
+      path="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+    />
+  );
+}
+
+function Linkedin({ className }: { className?: string }) {
+  return (
+    <BrandMark
+      className={className}
+      label="LinkedIn"
+      path="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
+    />
+  );
+}
 
 interface EnhancedShareButtonProps {
   success: boolean;
