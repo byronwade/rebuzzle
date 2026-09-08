@@ -92,7 +92,7 @@ export function PuzzleStage({
       {toggleable ? (
         <button
           aria-expanded={sizeExpanded}
-          aria-label={sizeExpanded ? "Puzzle — tap to shrink" : "Puzzle — tap to enlarge"}
+          aria-label={sizeExpanded ? "Puzzle — collapse" : "Puzzle — expand"}
           className={plateClassName}
           onClick={onToggleSize}
           style={plateStyle}
